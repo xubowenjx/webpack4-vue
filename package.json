@@ -1,0 +1,49 @@
+{
+  "name": "webpack4-vue",
+  "version": "1.0.0",
+  "description": "webpack4-vue",
+  "scripts": {
+    "serve": " webpack-dev-server --config ./scripts/webpack.dev.js --progress",
+    "build": "webpack --config ./scripts/webpack.prod.js"
+  },
+  "keywords": [
+    "webpack",
+    "webpack4",
+    "Vue"
+  ],
+  "author": "xubowenjx",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xubowenjx/webpack4-vue"
+  },
+  "devDependencies": {
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.6.3",
+    "autoprefixer": "^9.7.1",
+    "babel-loader": "^8.0.0-beta.0",
+    "clean-webpack-plugin": "^3.0.0",
+    "css-loader": "^3.2.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "happypack": "^5.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.0.0",
+    "vue": "^2.6.10",
+    "vue-loader": "^15.7.1",
+    "vue-router": "^3.1.3",
+    "vue-style-loader": "^4.1.2",
+    "vue-template": "^1.0.3",
+    "vue-template-compiler": "^2.6.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  }
+}
