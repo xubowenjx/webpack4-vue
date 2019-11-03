@@ -13,7 +13,7 @@ export default {
     console.log(...[1, 2, 3]);
   },
   components: {
-    layout: () => import("./layout.vue")
+    layout: () => import(/* webpackChunkName: "layout" */ "./layout/layout.vue")
   }
 };
 </script>

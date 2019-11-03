@@ -7,12 +7,12 @@ const router = new vueRouter({
     {
       path: "/",
       name: "home",
-      component: () => import("@/home.vue")
+      component: () => import(/* webpackChunkName: "home" */ "@/view/home.vue")
     },
     {
       path: "/sub",
       name: "sub",
-      component: () => import("@/sub.vue")
+      component: () => import(/* webpackChunkName: "sub" */ "@/view/sub.vue")
     }
   ]
 });

@@ -1,17 +1,20 @@
 const path = require("path");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
 const htmlWebpackPlugin = require("html-webpack-plugin");
-const webpack = require("webpack");
 const HappyPack = require("happypack");
+let MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const os = require("os");
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 function resolve(_path) {
   return path.resolve(__dirname, _path);
 }
+console.log("process.env.NODE_ENV," + process.env.NODE_ENV);
 module.exports = {
   entry: "./src/main.js",
   output: {
     filename: "index.js",
+    chunkFilename: "[name].[hash:8].bundle.js",
     path: resolve("../dist")
   },
   module: {
@@ -38,11 +41,22 @@ module.exports = {
 
       {
         test: /\.(css|less)$/,
-        use: ["style-loader", "css-loader", "postcss-loader", "less-loader"]
+        use: [
+          // MiniCssExtractPlugin.loader,
+          process.env.NODE_ENV !== "production"
+            ? "vue-style-loader"
+            : MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "less-loader"
+        ]
       }
     ]
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css"
+    }),
     new HappyPack({
       //用id来标识 happypack处理类文件
       id: "happyBabel",
@@ -57,7 +71,7 @@ module.exports = {
       //允许 HappyPack 输出日志
       verbose: true
     }),
-    new webpack.HashedModuleIdsPlugin(),
+    //new webpack.HashedModuleIdsPlugin(),
     new htmlWebpackPlugin({
       title: "hello",
       inject: true,
