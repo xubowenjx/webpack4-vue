@@ -54,7 +54,7 @@ module.exports = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].css"
+      filename: "[name].[hash:8].css"
     }),
     new HappyPack({
       //用id来标识 happypack处理类文件
