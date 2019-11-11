@@ -12,12 +12,12 @@ module.exports = webpackMerge(base, {
       chunks: "all",
       name: "common",
       cacheGroups: {
-        // vendor: {
-        //   name: "vendor",
-        //   test: /[\\/]node_modules[\\/]/,
-        //   priority: 10,
-        //   chunks: "initial" // 只打包初始时依赖的第三方
-        // },
+        vendor: {
+          name: "vendor",
+          test: /[\\/]node_modules[\\/]/,
+          priority: 10,
+          chunks: "initial" // 只打包初始时依赖的第三方
+        },
         styles: {
           name: "styles",
           test: /\.css$/,

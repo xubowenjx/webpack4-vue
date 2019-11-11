@@ -9,7 +9,6 @@ const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 function resolve(_path) {
   return path.resolve(__dirname, _path);
 }
-console.log("process.env.NODE_ENV," + process.env.NODE_ENV);
 module.exports = {
   entry: "./src/main.js",
   output: {
@@ -69,7 +68,7 @@ module.exports = {
       //共享进程池
       threadPool: happyThreadPool,
       //允许 HappyPack 输出日志
-      verbose: true
+      verbose: false
     }),
     //new webpack.HashedModuleIdsPlugin(),
     new htmlWebpackPlugin({
